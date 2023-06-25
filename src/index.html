@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homework 11</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        placeholder="Search images..."
+        id="inputSearch"
+        class="input-form"
+      />
+      <button id="submitButton" type="button" class="btt-search">Search</button>
+    </form>
+    <div class="gallery"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <button type="button" class="load-more">Load more</button>
+    <script type="module" src="api.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-aio-3.2.6.min.js
+    "></script>
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/notiflix@3.2.6/dist/notiflix-3.2.6.min.css
+    "
+      rel="stylesheet"
+    />
   </body>
 </html>
