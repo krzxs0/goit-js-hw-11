@@ -40,13 +40,13 @@ body {
   border-radius: 15px;
 }
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
 }
 
 .photo-card {
