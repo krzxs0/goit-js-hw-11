@@ -76,6 +76,8 @@ const createGalleryItem = ({ imgURL, tags, likes, views, comments, downloads }) 
         </div>
  </div>
 `;
-function noeneter() {
-  return !(window.event && window.event.keyCode === 13);
-} 
+const handleKeyPress = async (event) => {
+  if (event.key === 'Enter') {
+    await searchImages();
+  }
+};
