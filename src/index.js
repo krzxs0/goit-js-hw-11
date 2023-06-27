@@ -29,7 +29,7 @@ const searchImages = async () => {
     Notiflix.Notify.failure('Please enter something and try again!');
     return;
   }
-
+  pageCounter = 1
   let query = await getImages(inputElement.value);
 
   if (query.data.totalHits === 0) {
@@ -52,7 +52,12 @@ const searchImages = async () => {
     });
   });
 
-  galleryList.innerHTML = photos.map(createGalleryItem).join('');
+  galleryList.innerHTML = ''; 
+
+  photos.forEach((photo) => {
+    const galleryItem = createGalleryItem(photo);
+    galleryList.insertAdjacentHTML('beforeend', galleryItem);
+  });
 
   pageCounter++;
 
@@ -75,8 +80,12 @@ const loadMoreImages = async () => {
     });
   });
 
-  galleryList.innerHTML = photos.map(createGalleryItem).join('');
+  const newGalleryItems = photos.map(createGalleryItem).join('');
+  galleryList.insertAdjacentHTML('beforeend', newGalleryItems);
+
+  photos = [];
 };
+
 
 const createGalleryItem = ({ imgURL, tags, likes, views, comments, downloads }) => `
   <div class="photo-card">
@@ -98,7 +107,3 @@ const createGalleryItem = ({ imgURL, tags, likes, views, comments, downloads }) 
     </div>
   </div>
 `;
-
-
-
-
