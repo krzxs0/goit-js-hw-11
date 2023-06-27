@@ -5,6 +5,7 @@ let button = document.getElementById('submitButton');
 let loadmore = document.getElementsByClassName('load-more')[0];
 let galleryList = document.querySelector('.gallery');
 let pageCounter = 1;
+let totalPages = 0; 
 let photos = [];
 
 loadmore.onclick = async () => {
@@ -38,6 +39,8 @@ const searchImages = async () => {
   } else {
     Notiflix.Notify.success(`Hooray! we found ${query.data.totalHits}`);
   }
+
+  totalPages = Math.ceil(query.data.totalHits / 20); 
 
   loadmore.style.display = 'block';
 
@@ -84,8 +87,11 @@ const loadMoreImages = async () => {
   galleryList.insertAdjacentHTML('beforeend', newGalleryItems);
 
   photos = [];
-};
 
+  if (pageCounter > totalPages) {
+    loadmore.style.display = 'none'; 
+  }
+};
 
 const createGalleryItem = ({ imgURL, tags, likes, views, comments, downloads }) => `
   <div class="photo-card">
